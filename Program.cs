@@ -15,3 +15,32 @@ class Program
         Console.WriteLine("Массив строк, длина которых меньше или равна 3 символам:");
         PrintArray(resultArray);
     }
+     // Метод фильтрации строк по длине
+    static string[] FilterStrings(string[] array)
+    {
+        // Подсчет количества строк, длина которых <= 3
+        int count = 0;
+        foreach (string str in array)
+        {
+            if (str.Length <= 3)
+            {
+                count++;
+            }
+        }
+
+        // Создание нового массива для хранения отфильтрованных строк
+        string[] result = new string[count];
+        int index = 0;
+
+        // Заполнение нового массива подходящими строками
+        foreach (string str in array)
+        {
+            if (str.Length <= 3)
+            {
+                result[index] = str;
+                index++;
+            }
+        }
+
+        return result;
+    }
